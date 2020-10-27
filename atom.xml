@@ -38,6 +38,26 @@
   
   <entry>
     <title></title>
+    <link href="http://example.com/2020/10/23/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+    <id>http://example.com/2020/10/23/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</id>
+    <published>2020-10-23T10:14:14.074Z</published>
+    <updated>2020-10-27T12:36:20.578Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="如何使用搜索引擎"><a href="#如何使用搜索引擎" class="headerlink" title="如何使用搜索引擎"></a>如何使用搜索引擎</h1><p>很多朋友遇到问题的时候都喜欢上网上搜这个问题怎么解决，但是很多时候由于搜索<del>姿势不正确</del>导致搜不到想要的结果。这时候就会很苦恼，不知道该怎么办。所以今天就来给大家讲一讲怎么样搜索才能搜的更多，更准确。</p><hr><h2 id="百度引擎的使用"><a href="#百度引擎的使用" class="headerlink" title="百度引擎的使用"></a>百度引擎的使用</h2><p>百度作为一个国产的搜索引擎，是大家最常用的，但是通常当你用百度搜索一个东西时，第一条或前几条并非你搜索的结果，而是一个或多个广告，前些日子的那个“莆田医院害死大学生”就是百度引擎弊端的写照，资本的公司终究是为资本而生的，所以这时我们需要一点小小的手段来过滤掉百度的广告，这是开始学会使用搜索引擎的第一步。</p><h3 id="1-确定我们使用的浏览器是否支持插件功能："><a href="#1-确定我们使用的浏览器是否支持插件功能：" class="headerlink" title="1. 确定我们使用的浏览器是否支持插件功能："></a><strong>1. 确定我们使用的浏览器是否支持插件功能：</strong></h3><p>一般来说支持插件的都是谷歌系（即使用Chrome内核）。当然也可以科普一下，浏览器一般是五大浏览器：<br>即:</p><ol><li>Google的Chrome浏览器-chromium内核 </li><li>Micosoft的IE浏览器-Trident内核</li><li>Firefox的火狐浏览器-Gecko内核</li><li>Apple的Safari浏览器-Webkit内核</li><li>Opera浏览器-Blink内核</li></ol><p>国产浏览器：</p><ol><li>360,猎豹-IE+Chromium双内核;</li><li>搜狗傲游QQ -Trident（兼容）+Webkit（快速）</li><li>百度，世界之窗 - IE内核</li><li>2345 - IE + Chromium内核</li></ol><p>现在大家对于浏览器的分类及其所使用的内核都有一个比较深刻的认识了，不过在此我要推荐一款<code>Micosoft</code><br>所出品的带有Chrome内核的<code>Edge浏览器</code><br>那就是 <code>InsiderEdge</code><br>使用百度搜索 Insider edge 就能够下载了<br>说完了能使用拓展的浏览器，开始说说怎么使用拓展。</p><h3 id="2-拓展的安装使用"><a href="#2-拓展的安装使用" class="headerlink" title="2. 拓展的安装使用"></a><strong>2. 拓展的安装使用</strong></h3><p><strong>有三种安装方式可以安装此优化</strong></p><ol><li><p>在拓展商店直接搜索<code>百度优化</code>即可（使用chrome浏览器需要科学上网才能访问拓展商店）</p></li><li><p>在网上下载该功能拓展包（搜索：百度重定位优化），在拓展里点击上传安装（浏览器可能需要打开开发人员模式才能安装，如 Insider Edge）</p></li><li><p>使用Tampermonkey利用脚本安装（推荐）。具体使用为：打开拓展商店，搜索Tampermonkey安装–&gt;点击浏览器右上角的Tampermonkey的图标点击<code>获取新脚本</code>来转到脚本获取页–&gt;使用GreasyFork这个去搜索脚本<code>百度优化</code>直接安装，安装完毕后，去百度搜索刷新一下页面，就会发现广告都被过滤了。</p></li></ol><h3 id="3-如何使用百度去搜索关键字那？"><a href="#3-如何使用百度去搜索关键字那？" class="headerlink" title="3. 如何使用百度去搜索关键字那？"></a><strong>3. 如何使用百度去搜索关键字那？</strong></h3><p>百度由于其在国内的一家独大，现在的搜索内容都是给钱你就排前面，很难搜到自己想看的东西，经过刚才我们的百度优化过后，广告问题算是解决了，但是我们知道，任何搜索引擎是会把访问最多的放在前面。这时候问题来了我们搜索东西时，有些东西内容已经更新，但是百度出来的还是很多年前的问题解决方法，现在已经用不了了，这时候就要用百度自带的时间限制了，使用这个功能来缩小搜索范围，把一些以前的搜索内容给过滤掉了。</p><p>还有一些百度搜索的高级语法这里就不赘述了，直接贴网址&gt;<a href="https://jingyan.baidu.com/article/d621e8dae7593c2864913f7b.html">百度搜索语法的使用方法</a></p><h3 id="4-google搜索应该怎么使用高级语法？"><a href="#4-google搜索应该怎么使用高级语法？" class="headerlink" title="4. google搜索应该怎么使用高级语法？"></a><strong>4. google搜索应该怎么使用高级语法？</strong></h3><p>这里我就要给大家推荐这个了 google-hack：<a href="https://www.cnblogs.com/-wenli/p/9581970.html">Google-hack的使用方法</a> 可以看这篇博客进行学习</p><p>其他的搜索引擎也有对应的高级搜索语法，大家可以自己去看一看。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;如何使用搜索引擎&quot;&gt;&lt;a href=&quot;#如何使用搜索引擎&quot; class=&quot;headerlink&quot; title=&quot;如何使用搜索引擎&quot;&gt;&lt;/a&gt;如何使用搜索引擎&lt;/h1&gt;&lt;p&gt;很多朋友遇到问题的时候都喜欢上网上搜这个问题怎么解决，但是很多时候由于搜索&lt;del&gt;姿势不正</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
     <link href="http://example.com/2020/10/23/%20%E5%A6%82%E4%BD%95%E6%8F%90%E9%97%AE/"/>
     <id>http://example.com/2020/10/23/%20%E5%A6%82%E4%BD%95%E6%8F%90%E9%97%AE/</id>
     <published>2020-10-23T10:11:07.225Z</published>
