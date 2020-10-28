@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-27T10:41:45.721Z</updated>
+  <updated>2020-10-28T12:47:33.497Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,31 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2020/10/27/hello-world/"/>
-    <id>http://example.com/2020/10/27/hello-world/</id>
-    <published>2020-10-27T10:41:45.721Z</published>
-    <updated>2020-10-27T10:41:45.721Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>如何使用搜索引擎</title>
     <link href="http://example.com/2020/10/23/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
     <id>http://example.com/2020/10/23/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</id>
     <published>2020-10-23T10:14:14.074Z</published>
-    <updated>2020-10-27T12:46:05.037Z</updated>
+    <updated>2020-10-28T12:47:33.497Z</updated>
     
     <content type="html"><![CDATA[<h1 id="如何使用搜索引擎"><a href="#如何使用搜索引擎" class="headerlink" title="如何使用搜索引擎"></a>如何使用搜索引擎</h1><p>很多朋友遇到问题的时候都喜欢上网上搜这个问题怎么解决，但是很多时候由于搜索<del>姿势不正确</del>导致搜不到想要的结果。这时候就会很苦恼，不知道该怎么办。所以今天就来给大家讲一讲怎么样搜索才能搜的更多，更准确。</p><hr><h2 id="百度引擎的使用"><a href="#百度引擎的使用" class="headerlink" title="百度引擎的使用"></a>百度引擎的使用</h2><p>百度作为一个国产的搜索引擎，是大家最常用的，但是通常当你用百度搜索一个东西时，第一条或前几条并非你搜索的结果，而是一个或多个广告，前些日子的那个“莆田医院害死大学生”就是百度引擎弊端的写照，资本的公司终究是为资本而生的，所以这时我们需要一点小小的手段来过滤掉百度的广告，这是开始学会使用搜索引擎的第一步。</p><h3 id="1-确定我们使用的浏览器是否支持插件功能："><a href="#1-确定我们使用的浏览器是否支持插件功能：" class="headerlink" title="1. 确定我们使用的浏览器是否支持插件功能："></a><strong>1. 确定我们使用的浏览器是否支持插件功能：</strong></h3><p>一般来说支持插件的都是谷歌系（即使用Chrome内核）。当然也可以科普一下，浏览器一般是五大浏览器：<br>即:</p><ol><li>Google的Chrome浏览器-chromium内核 </li><li>Micosoft的IE浏览器-Trident内核</li><li>Firefox的火狐浏览器-Gecko内核</li><li>Apple的Safari浏览器-Webkit内核</li><li>Opera浏览器-Blink内核</li></ol><p>国产浏览器：</p><ol><li>360,猎豹-IE+Chromium双内核;</li><li>搜狗傲游QQ -Trident（兼容）+Webkit（快速）</li><li>百度，世界之窗 - IE内核</li><li>2345 - IE + Chromium内核</li></ol><p>现在大家对于浏览器的分类及其所使用的内核都有一个比较深刻的认识了，不过在此我要推荐一款<code>Micosoft</code><br>所出品的带有Chrome内核的<code>Edge浏览器</code><br>那就是 <code>InsiderEdge</code><br>使用百度搜索 Insider edge 就能够下载了<br>说完了能使用拓展的浏览器，开始说说怎么使用拓展。</p><h3 id="2-拓展的安装使用"><a href="#2-拓展的安装使用" class="headerlink" title="2. 拓展的安装使用"></a><strong>2. 拓展的安装使用</strong></h3><p><strong>有三种安装方式可以安装此优化</strong></p><ol><li><p>在拓展商店直接搜索<code>百度优化</code>即可（使用chrome浏览器需要科学上网才能访问拓展商店）</p></li><li><p>在网上下载该功能拓展包（搜索：百度重定位优化），在拓展里点击上传安装（浏览器可能需要打开开发人员模式才能安装，如 Insider Edge）</p></li><li><p>使用Tampermonkey利用脚本安装（推荐）。具体使用为：打开拓展商店，搜索Tampermonkey安装–&gt;点击浏览器右上角的Tampermonkey的图标点击<code>获取新脚本</code>来转到脚本获取页–&gt;使用GreasyFork这个去搜索脚本<code>百度优化</code>直接安装，安装完毕后，去百度搜索刷新一下页面，就会发现广告都被过滤了。</p></li></ol><h3 id="3-如何使用百度去搜索关键字那？"><a href="#3-如何使用百度去搜索关键字那？" class="headerlink" title="3. 如何使用百度去搜索关键字那？"></a><strong>3. 如何使用百度去搜索关键字那？</strong></h3><p>百度由于其在国内的一家独大，现在的搜索内容都是给钱你就排前面，很难搜到自己想看的东西，经过刚才我们的百度优化过后，广告问题算是解决了，但是我们知道，任何搜索引擎是会把访问最多的放在前面。这时候问题来了我们搜索东西时，有些东西内容已经更新，但是百度出来的还是很多年前的问题解决方法，现在已经用不了了，这时候就要用百度自带的时间限制了，使用这个功能来缩小搜索范围，把一些以前的搜索内容给过滤掉了。</p><p>还有一些百度搜索的高级语法这里就不赘述了，直接贴网址&gt;<a href="https://jingyan.baidu.com/article/d621e8dae7593c2864913f7b.html">百度搜索语法的使用方法</a></p><h3 id="4-google搜索应该怎么使用高级语法？"><a href="#4-google搜索应该怎么使用高级语法？" class="headerlink" title="4. google搜索应该怎么使用高级语法？"></a><strong>4. google搜索应该怎么使用高级语法？</strong></h3><p>这里我就要给大家推荐这个了 google-hack：<a href="https://www.cnblogs.com/-wenli/p/9581970.html">Google-hack的使用方法</a> 可以看这篇博客进行学习</p><p>其他的搜索引擎也有对应的高级搜索语法，大家可以自己去看一看。</p>]]></content>
     
@@ -53,6 +33,10 @@
     
     
     
+    <category term="杂项" scheme="http://example.com/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="入门" scheme="http://example.com/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
@@ -61,7 +45,7 @@
     <link href="http://example.com/2020/10/23/%20%E5%A6%82%E4%BD%95%E6%8F%90%E9%97%AE/"/>
     <id>http://example.com/2020/10/23/%20%E5%A6%82%E4%BD%95%E6%8F%90%E9%97%AE/</id>
     <published>2020-10-23T10:11:07.225Z</published>
-    <updated>2020-10-27T12:45:57.656Z</updated>
+    <updated>2020-10-28T12:47:21.384Z</updated>
     
     <content type="html"><![CDATA[<h1 id="如何提问"><a href="#如何提问" class="headerlink" title="如何提问"></a>如何提问</h1><p>孙中山小的时候在私塾读书。那时候上课，只是先生念，学生跟着读，然后把读的段落背诵下来。至于书里的意思，先生从来不讲解。一天，孙中山照例流利地背出了前一天学的功课。先生在他的书上又圈了一段，他读了几遍，很快又背下来了。但是，书里说的是什么意思，他一点也不懂。孙中山想，这样糊里糊涂地背，有什么用呢？于是，他壮着胆子站起来，问：“先生，您刚才让我背的这段书是什么意思？您能讲讲吗？”</p><p>这一问，把正在摇头晃脑高声念书的同学们吓呆了，教室里顿时鸦雀无声。</p><p>先生拿着戒尺，走到孙中山跟前，厉声问道：“你会背了？”</p><p>“会背了。”孙中山说着，就把那段书一字不错地背了出来。</p><p>先生收起戒尺，摆摆手让孙中山坐下，说：“书中的道理，你们长大了自然会知道的。不过，学问，学问，不懂就问。现在你们既然想听，我就讲讲吧。”</p><p>先生讲得很仔细，大家听得很认真。从此，孙中山一有不懂的事情，就主动地问，养成了良好的学习习惯。</p><p>这是小学二年级孙中山求学的一篇文章，意在告诉我们多向老师和优秀的同学去请教，提升自己的学问，就算挨打也值得。的确，提问是获取知识和解决方法最好的手段之一，但并不是每一个问题都适合去请教，一个好的问题应该是让会让提问者和回答者都有收获，是思想的碰撞。 同时，一些人往往认为只有解答问题是有难度的，却没有把心思花在提问上。提问，也是有技巧的。一个草率的提问只会得到草率的答案，不花心思的提问只能换来不花心思的回答。</p><p>常见的几种错误的提问方式</p><p>学会正确的提问，不仅仅节省自己的时间，也节省别人的时间。</p><p>你好，经常在 Quora中看到 “A2A”，你知道那是什么意思吗？</p><p>可以说，90% 以上的问题，在网上都已经有答案了。这些答案可能在知乎、百度知道、一篇博文、新闻网站、公众号等，学会使用搜索引擎，是最好的寻找答案的方式。伸手党跟任何人问这样的问题都是在变相浪费对方的生命、节省自己的时间。</p><p>穆里尼奥带着国际米兰到鸟巢比赛，输给拉齐奥，赛后新闻发布会上，穆里尼奥抱怨鸟巢的草皮太差，影响了国米的发挥。有中央电视台记者问：“在同等的鸟巢场地条件，为什么拉齐奥取得了胜利？”穆里尼奥回答：“我终于知道中国足球为什么不行，你们的足球记者提的问题太业余，你们似乎不大懂得足球。你们中国人赢得了很多项目，只有足球不行，你们的问题离高水平记者的问题太远了。”</p><p>穆里尼奥确是没有说错，他非常不客气是因为记者问了一个不叫问题的问题。不要去问一些没有答案的问题 ，提问题甚至比回答更难，如果没有预判，不知道自己想要什么样的答案，建议不要提问。要提问就要给出恰当的信息，别人才能好好回答。</p><p>每次发工资，都会遇到个别无知又无畏的同事在办公室大庭广众之下问钱的事。你的工资多少？</p><p>每个人都有自己的隐私，问别人隐私问题是不礼貌的行为，尤其是在公众场合。</p><p>除了以上常见的错误提问方式，其它都是可以问的了。</p><p>正确的问题</p><p>一个正确的提问流程应该是这样的：</p><p>问什么？</p><p>首先，你要确定你想通过提问得到什么样的答案？其次，问具体的问题，少问空而大的问题。对于个人提问，大多数情况下，对方根本没时间回复空而大的发散性问题。问题必须被缩小，缩小到对方能够快速回答，缩小到你把所有的情景、状况、条件都描述清楚，对方结合这些前提能迅速给出答案。最后，问对方熟悉的领域。在提问前，一定要调查对方的背景，知道对方熟悉的领域，这样才不会问出对方不愿意回答或回答了你也觉得没有收获的问题。<br>好的提问，应该是尽可能避免开放性，过度开放的问题，其实是你没想好问什么，就是想从对方那里随便扒拉一点干货出来。而宏观的提问只能证明你脑袋里对问题一团浆糊，全无头绪，只能漫无目的的问，指望别人把你的变量组合给你一条条捋清楚。</p><p>标题</p><p>在邮件列表、新闻群组或论坛中，大约 50 字以内的标题是抓住资深专家注意力的好机会。别用喋喋不休的’帮帮忙’’跪求’’急’来浪费这个机会。不要妄想用你的痛苦程度来打动对方，而是在这点空间中使用极简单扼要的描述方式来提出问题。<br>一个好标题范例是目标 — 差异式的描述，在目标部分指出是哪一个或哪一组东西有问题，在差异部分则描述与期望的行为不一致的地方。</p><p>精确描述</p><p>提问时，把问题表述清楚，如果是一个电脑问题，把所有你收集到的相关线索整理出来，以便于对方能迅速定位问题所在。还是那句话，别浪费对方的时间。<br>另外，如果一个问题能用 100 个字描述，别用 1000 个字。在确保已经把所有的前置条件都写完的前提下，检查一遍你即将发出去的提问，看看能不能缩句，看看能不能把没用的废话删掉。<br>话不在多而在精 ，试想，当我们在使用微信时，有人扔过来满屏的文字，我们可能都没心思看完，何况是你的被提问者？你需要提供精确有内容的信息。</p><p>尝试解决</p><p>提问前，做足够的调研，并把调研的结果浓缩成几句话，让对方感受到你确实通过 Google 没有找到合适的答案，才求助于他。对方如果能回答，也会感到沾沾自喜，因为他回答了一个别人没有回答过的问题。</p><p>表达谢意</p><p>想想你能为对方提供什么，别人凭什么要帮你？<br>大牛们都很忙，即使不是大牛，别人的时间也是时间。在提问前，不妨想想我们能为对方提供什么，好让对方愿意回答我们的问题。<br>最简单的，当然是钱。你会发现，现在很多人在微信里给别人提问，都会顺带发一个红包，不管红包多少，都在表达自己的真诚。但不是每个人都直接对钱感兴趣。好的提问应该是让对方也有所收获的，这个收获可能是知识上的收获，又或者你本人对对方公司的业务是有帮助的。比如，你是一个科技媒体记者，你问某公司创始人关于该公司为什么的某个火爆的功能如此成功，他当然愿意回答，因为他知道，你可能会在报道中说他们的「好」。<br>找别人帮忙也是如此，找别人之前，先想想你能为对方提供什么，对方凭什么要帮你。</p><p>跟进提问</p><p>回答结束后，一个礼貌的感谢是必须的。有个好的收尾是必须的，你永远不知道什么时候你还需要对方帮忙。<br>提问，往往是我们整个学习或解决问题中的一环，是我们无法通过 Google 找到答案的一环。当我们获得答案，或获得多个人的答案后，整个学习过程并没有结束。这时候需要做的是归纳整理，从所有的答案和线索中，整理出一个最符合你当前遇到问题的答案，这才真正解决问题，才是真正的学习，才是真正的动脑解决问题。<br>问过很多不靠谱的问题，这不打紧，谁没傻逼过。重要的是，问得不好，下次要改。</p>]]></content>
     
@@ -73,6 +57,10 @@
     
     
     
+    <category term="杂项" scheme="http://example.com/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="入门" scheme="http://example.com/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
