@@ -6,7 +6,7 @@
  font-family: 'JetBrains Mono';
  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
 }</style><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="百年大佬" type="application/atom+xml">
-</head><body><header><nav><a href="/">主页</a><a href="/archives/">归档</a><a href="/about/">关于</a></nav></header><main><article><div id="post-bg"><div id="post-title"><div id="post-info"><span>date:<time datetime="2021-03-15T02:31:45.530Z" id="date"> 2021-03-15</time></span><br><span>updated:<time datetime="2021-03-17T11:49:52.236Z" id="updated"> 2021-03-17</time></span></div><h1>什么是OWASP TOP10</h1><hr></div><div id="post-content"><h1 id="什么是OWASP"><a href="#什么是OWASP" class="headerlink" title="什么是OWASP"></a>什么是OWASP</h1><blockquote>
+</head><body><header><nav><a href="/">主页</a><a href="/archives/">归档</a><a href="/about/">关于</a></nav></header><main><article><div id="post-bg"><div id="post-title"><div id="post-info"><span>date:<time datetime="2021-03-15T02:31:45.530Z" id="date"> 2021-03-15</time></span><br><span>updated:<time datetime="2021-03-17T12:08:11.953Z" id="updated"> 2021-03-17</time></span></div><h1>什么是OWASP TOP10</h1><hr></div><div id="post-content"><h1 id="什么是OWASP"><a href="#什么是OWASP" class="headerlink" title="什么是OWASP"></a>什么是OWASP</h1><blockquote>
 <p>OWASP(Open Web Application Security Project)  是一个在线社区，主要在Web应用程序安全领域中提供文章，方法论，文档，工具和技术。OWASP Top 10列出了公认的最具有威胁性的Web应用安全漏洞。</p>
 </blockquote>
 <details>
@@ -111,9 +111,8 @@
 <li>使用虚拟补丁，API安全网关，WAF等手段</li>
 </ol>
 <p>例子</p>
-<?xml version="1.0" encoding="ISO-8859-1"?><p> </p>
-<!DOCTYPE foo [ 
-<!ELEMENT foo ANY ><p><br><!ENTITY xxe SYSTEM "file:///etc/passwd" >]&gt;<br><foo>&xxe;</foo> </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span> <br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">foo</span> [ </span><br><span class="hljs-meta"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">foo</span> <span class="hljs-meta-keyword">ANY</span> &gt;</span> </span><br><span class="hljs-meta"><span class="hljs-meta">&lt;!ENTITY <span class="hljs-meta-keyword">xxe</span> <span class="hljs-meta-keyword">SYSTEM</span> <span class="hljs-meta-string">&quot;file:///etc/passwd&quot;</span> &gt;</span>]&gt;</span> <br><span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span><span class="hljs-symbol">&amp;xxe;</span><span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span> <br></code></pre></td></tr></table></figure>
+
 <h3 id="Top5-失效访问控制"><a href="#Top5-失效访问控制" class="headerlink" title="Top5-失效访问控制"></a>Top5-失效访问控制</h3><p>认证用户权限的限制往往没有比较好地配置，这导致攻击者能够利用这些缺陷访问未授权的功能和数据。</p>
 <p>漏洞原因：</p>
 <ol>
